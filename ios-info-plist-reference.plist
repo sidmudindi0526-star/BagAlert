@@ -1,0 +1,38 @@
+<!-- ios/Runner/Info.plist
+     
+     MERGE these keys into the Info.plist that `flutter create` generates.
+     They provide the required permission descriptions for App Store submission.
+-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- ═══ Location Permissions ═══ -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>BagAlert needs your location to remind you to grab your reusable bags when near grocery stores.</string>
+
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>BagAlert uses background location to notify you when you leave home or approach a grocery store, even when the app is closed.</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>BagAlert uses background location to send bag reminders near stores.</string>
+
+    <!-- ═══ Enable background location mode ═══ -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
+
+    <!-- ═══ Google Maps API Key ═══ -->
+    <!-- Set in AppDelegate.swift instead, not here -->
+
+    <!-- ═══ App Transport Security (allow Maps tile fetching) ═══ -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+</dict>
+</plist>

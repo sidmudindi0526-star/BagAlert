@@ -1,0 +1,53 @@
+<!-- android/app/src/main/AndroidManifest.xml
+     
+     MERGE these permissions and metadata into the AndroidManifest.xml that
+     `flutter create` generates. Place them inside the <manifest> tag
+     (permissions) and inside the <application> tag (meta-data).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ═══ Location permissions ═══ -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Background location (required for geofencing while app is closed) -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <!-- ═══ Notification permission (Android 13+) ═══ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- ═══ Keep awake for background tracking ═══ -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <!-- ═══ Internet for Google Maps tiles ═══ -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:label="BagAlert"
+        android:icon="@mipmap/ic_launcher">
+
+        <!-- ═══ Google Maps API Key ═══ -->
+        <!-- Replace YOUR_GOOGLE_MAPS_API_KEY with your actual key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_GOOGLE_MAPS_API_KEY" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+</manifest>
